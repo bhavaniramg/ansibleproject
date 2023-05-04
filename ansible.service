@@ -1,0 +1,7 @@
+---
+ - name: packages instalization
+   hosts: all
+   tasks:
+     - name: package instalization
+       yum: name=httpd state=present
+     - service: name=httpd state=started
