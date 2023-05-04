@@ -1,0 +1,8 @@
+---
+ - name: testing for gathering facts
+   hosts: vlab1
+   tasks:
+    -  copy: src=/var/log/secure dest=/tmp
+    -  file: dest=/tmp/ashok state=touch
+    -  service: name=httpd state=started
+...    
