@@ -1,0 +1,11 @@
+---
+ - name: playbook using listen
+   hosts: vlab1
+   tasks:
+    - name: copy the file to clients
+      copy: src=/etc/ssh/sshd_config dest=/etc/ssh/
+      notify: only any change happend rebooting process will be initiate
+   handlers:
+    - name: httpd service start
+      service: name=httpd state=restarted
+      listen: only any change happend rebooting process will be initiate
